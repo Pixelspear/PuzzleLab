@@ -1,0 +1,14 @@
+##Unity Project Garbage
+[Oo]bj/*
+[Oo]bj/
+[Ll]ibrary/*
+[Ll]ibrary/
+[Ll]ogs/*
+[Ll]ogs/
+[Tt]emp/*
+[Tt]emp/
+
+##Ignore IDE junk
+*.csproj
+*.sln
+*.vs/*

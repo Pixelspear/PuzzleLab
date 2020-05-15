@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSelection : MonoBehaviour {
 
@@ -22,11 +23,14 @@ public class GameSelection : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         if (selection) {
-            selectedLabel.text = selection.name + " SELECTED";
+            selectedLabel.text = selection.name + " Selected";
             labelPos = Camera.main.WorldToScreenPoint(selection.transform.position + (Vector3.up * 3.5f));
         } else {
-            selectedLabel.text = "NO SELECTION\n(CLICK ON PLAYER)";
+            selectedLabel.text = "No Selection\n(Click a Blue Dotted Object)";
             labelPos = Input.mousePosition;
         }
 

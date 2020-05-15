@@ -13,14 +13,16 @@ Unity project for prototyping and testing puzzles.
 - Player movement
     - Walking directions
     - Dectects walkable vs. non-walkable tiles
+    - Can walk on TumbleBridges
+- TumbleBridge behaviour
+    - Tumbles in any direction as long as there is room available, will become 'consolidated' once it lands in a chasm, becoming walkable but no longer allowing any control
 - End Area (Will change to "COMPLETE!" after player reaches it)
 
 ## To Do
 
-- Create TumbleBridge bot behaviour (Imitate Bloxorz behaviour, become walkable tiles when dropped in 2-tile-wide gap or 1-tile-wide gap, depending on bot's position before falling in)
 - Create DemoBot bot behaviour (Imitate player behaviour, but takes up 2+ tiles)
 - Create destructible wall (can be destroyed by DemoBot)
 - Add behaviour for player to check other factors besides tile status
     - Is there a destructible wall or a bot in the way?
-    - Is a TumbleBridge covering a gap, making it accessible?
+    - [DONE] Is a TumbleBridge covering a gap, making it accessible?
     - Since this is merely a prototyping playground, these have low priority. Base requirements only include making it playable enough to determine whether the puzzle is good or needs adjusting.

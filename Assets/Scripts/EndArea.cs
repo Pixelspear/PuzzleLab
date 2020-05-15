@@ -28,6 +28,7 @@ public class EndArea : GamePiece {
 
         complete = true;
         text.text = "COMPLETE!";
+        GameSelection.instance.Deselect();
 
     }
 

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Player : GamePiece {
 
-    public Vector3Int moveTo;
-    public Vector3Int pos;
-
     // Start is called before the first frame update
     void Start() {
-        pos = Vector3Int.RoundToInt(transform.localPosition);
+
+        base.Start();
     }
 
     // Update is called once per frame
     void Update() {
+
+        base.Update();
 
         moveTo = Vector3Int.zero;
 
@@ -45,16 +45,25 @@ public class Player : GamePiece {
 
                 Debug.Log(target, target);
 
-                if (target.status == TileStatus.Floor) {
+                RaycastHit hit;
+                Physics.Raycast(transform.parent.position + targetTile + Vector3.up, Vector3.down * 2, out hit);
+                Debug.DrawRay(transform.parent.position + targetTile + Vector3.up, Vector3.down * 2, Color.cyan);
+
+                Debug.Log(hit.collider);
+
+                //If the target tile is floor and if no collision with other entities are made on that tile
+                if ((target.status == TileStatus.Floor && hit.collider == null) ||
+                    //Or if the target tile is being filled by a consolidated bridge
+                    (hit.collider && hit.collider.GetComponent<TumbleBridge>() && hit.collider.GetComponent<TumbleBridge>().consolidated)) {
                     pos = targetTile;
-                    Debug.DrawRay(transform.parent.position + targetTile, Vector3.up * 5, Color.green);
+                    Debug.DrawRay(transform.parent.position + targetTile, Vector3.up * 0.5f, Color.green);
                 } else
-                    Debug.DrawRay(transform.parent.position + targetTile, Vector3.up * 5, Color.yellow);
+                    Debug.DrawRay(transform.parent.position + targetTile, Vector3.up * 0.5f, Color.yellow);
 
             } else 
 
                 Debug.DrawRay(transform.parent.position + targetTile, Vector3.up * 5, Color.red);
-            
+
         }
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, pos, Time.deltaTime * 20);

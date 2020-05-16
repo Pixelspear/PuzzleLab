@@ -33,9 +33,6 @@ public class Player : GamePiece {
 
             Vector3Int targetTile = pos + moveTo;
 
-            Debug.Log(targetTile);
-            Debug.Log(PuzzleGrid.instance.array.Length);
-
             if (targetTile.x >= 0 && 
                 targetTile.y >= 0 && 
                 targetTile.x < PuzzleGrid.instance.array.Length && 
@@ -43,13 +40,9 @@ public class Player : GamePiece {
 
                 PuzzleTile target = PuzzleGrid.instance.array[targetTile.x].row[targetTile.z];
 
-                Debug.Log(target, target);
-
                 RaycastHit hit;
                 Physics.Raycast(transform.parent.position + targetTile + Vector3.up, Vector3.down * 2, out hit);
                 Debug.DrawRay(transform.parent.position + targetTile + Vector3.up, Vector3.down * 2, Color.cyan);
-
-                Debug.Log(hit.collider);
 
                 //If the target tile is floor and if no collision with other entities are made on that tile
                 if ((target.status == TileStatus.Floor && hit.collider == null) ||

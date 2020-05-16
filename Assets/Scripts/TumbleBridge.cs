@@ -63,8 +63,6 @@ public class TumbleBridge : GamePiece {
             PuzzleTile target1 = null;
             PuzzleTile target2 = null;
 
-            Debug.Log(moveAxis);
-
             //Fortunately, target tile detection is simple; if the bridge is upright, it will ALWAYS take up the next two tiles in the selected direction, and if it is upright, it will only take up one tile in the selected direction
             if (status == TumbleBridgeStatus.Upright) {
 

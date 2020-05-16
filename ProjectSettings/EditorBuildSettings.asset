@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/LearnTumbleBridge.unity
+    guid: 5a6712c671611524ca933cd39c9a02d7
+  - enabled: 1
+    path: Assets/Scenes/LearnTumbleBridge2.unity
+    guid: 80ab97c6137f2414e928584c0d636a20
+  - enabled: 1
+    path: Assets/Scenes/STOP.MultiplePaths.unity
+    guid: 3af578ada983a0042939a50f5c19695c
   m_configObjects: {}
